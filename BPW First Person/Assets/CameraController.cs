@@ -9,8 +9,8 @@ public class CameraController : MonoBehaviour {
     public float minimumY = -360f;
     public float maximumY = 360f;
 
-    public float sensitivityX = 15f;
-    public float sensitivityY = 15f;
+    public float sensitivityX = 0.1f;
+    public float sensitivityY = 0.1f;
 
     public Camera cam;
 
