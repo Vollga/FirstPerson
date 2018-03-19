@@ -4,17 +4,32 @@ using UnityEngine;
 
 public class SteppedOn : MonoBehaviour {
 
-	public GameObject target;
-	MeshRenderer renderer;
+	public GameObject door;
+	public GameObject[] lines;
+	public Material colourOn;
+
+	MeshRenderer drend;
 	BoxCollider collision;
+	MeshRenderer[] lrend;
+
 
 	void Start () {
-	//	renderer = target.GetComponent (MeshRenderer);
-	//	BoxCollider = target.GetComponent (BoxCollider);
+		drend = door.GetComponent <MeshRenderer> ();
+		collision = door.GetComponent <BoxCollider> ();
+		lrend = new MeshRenderer[lines.Length];
+		for (int i = 0; i < lines.Length; i++) 
+		{
+			lrend[i] = lines[i].GetComponent <MeshRenderer> ();
+		}
 	}
 	
-	void OnCollisionEnter(Collider other)
+	void OnTriggerEnter(Collider other)
 	{
-		Destroy (target);
+		drend.enabled = false;
+		collision.enabled = false;
+		for (int i = 0; i < lrend.Length; i++) 
+		{
+			lrend[i].material = colourOn;
+		}
 	}
 }
