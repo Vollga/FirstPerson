@@ -7,6 +7,7 @@ public class SteppedOn1 : MonoBehaviour {
 	public GameObject door;
 	public GameObject[] lines;
 	public Material colourOn;
+	public AudioSource audio;
 
 	MeshRenderer drend;
 	BoxCollider collision;
@@ -25,6 +26,7 @@ public class SteppedOn1 : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
+		audio.Play();
 		drend.enabled = false;
 		collision.enabled = false;
 		for (int i = 0; i < lrend.Length; i++) 

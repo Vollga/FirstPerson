@@ -7,6 +7,7 @@ public class SteppedOn2 : MonoBehaviour {
 	public GameObject[] Trapdoors;
 	public GameObject[] lines;
 	public Material colourOn;
+	public AudioSource audio;
 
 	Rigidbody[] rigid;
 	MeshRenderer[] lrend;
@@ -27,6 +28,7 @@ public class SteppedOn2 : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
+		audio.Play();
 		for (int i = 0; i < rigid.Length; i++)
 		{
 			rigid [i].freezeRotation = false;
